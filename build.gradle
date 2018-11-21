@@ -7,7 +7,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+    classpath "com.gradle.publish:plugin-publish-plugin:0.9.10"
   }
 }
 
@@ -17,14 +17,14 @@ apply plugin: 'signing'
 apply plugin: 'idea'
 apply plugin: "com.gradle.plugin-publish"
 
-group = 'com.github.onslip'
+group = 'io.tiledb'
 version = '1.0.5'
 ext.packaging = 'jar'
 
 def pluginName = 'gradle-one-jar'
 def pluginDesc = 'The gradle-one-jar project is a Gradle plugin that uses One-JAR, a specialized Class-Loader written by Simon Tuffs (http://one-jar.sourceforge.net/), for building self-contained executable jars that include all dependencies.'
-def pluginHome = 'https://github.com/Onslip/gradle-one-jar/'
-def pluginRepo = 'https://github.com/Onslip/gradle-one-jar.git'
+def pluginHome = 'https://github.com/TileDB/gradle-one-jar/'
+def pluginRepo = 'https://github.com/TileDB/gradle-one-jar.git'
 
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
@@ -58,7 +58,7 @@ task exportJavadoc(type: Copy, dependsOn: 'groovydoc') {
 
 // enable Gradle Wrapper support for bootstrapping with specific version
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.10'
+    gradleVersion = '4.10'
 }
 
 artifacts {
@@ -134,6 +134,12 @@ uploadArchives {
                             email 'martin.blom@onslip.com'
                             organization 'Onslip AB'
                             organizationUrl 'http://www.onslip.com/'
+                       }
+                       developer {
+                           name 'Seth Shelnutt'
+                           email 'seth@tiledb.io'
+                           organization 'TileDB, Inc.'
+                           organizationUrl 'https://tiledb.io/'
                        }
                    }
                }
